@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/btn_buletooth"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="蓝牙自动配对" />
+
+        <Button
+            android:id="@+id/btn_muiltdownload"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="多线程断点下载" />
+
+        <Button
+            android:id="@+id/btn_verticalscroll"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="纵向跑马灯(仿淘宝、京东效果)" />
+
+        <Button
+            android:id="@+id/btn_polygon"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="多边形（数据统计）" />
+
+        <Button
+            android:id="@+id/btn_watch"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="表盘" />
+
+        <Button
+            android:id="@+id/btn_behavior"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="CoordinatorLayout自定义Behavior" />
+
+        <Button
+            android:id="@+id/btn_okhttp_retrofit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="okhttp+retrofit" />
+
+        <Button
+            android:id="@+id/btn_svg_test"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="SVG图片初探" />
+        <Button
+            android:id="@+id/btn_custom_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="自定义View" />
+        <Button
+            android:id="@+id/btn_baidu_map"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="百度地图" />
+    </LinearLayout>
+</ScrollView>

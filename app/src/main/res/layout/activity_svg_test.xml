@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/iv_svg_1"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        android:src="@drawable/ic_fish" />
+
+    <ImageView
+        android:id="@+id/iv_svg_2"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        android:layout_toRightOf="@id/iv_svg_1"
+        android:src="@drawable/ic_form" />
+
+    <ImageView
+        android:id="@+id/iv_svg_3"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        android:layout_toRightOf="@id/iv_svg_2"
+        android:src="@drawable/ic_horse" />
+
+    <LinearLayout
+        android:id="@+id/ll_bottom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btn_previous"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:enabled="false"
+            android:onClick="onPrevious"
+            android:text="上一个" />
+
+        <Button
+            android:id="@+id/btn_next"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:enabled="false"
+            android:onClick="onNext"
+            android:text="下一个" />
+
+
+    </LinearLayout>
+
+    <SeekBar
+        android:id="@+id/seekbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/ll_bottom"
+        android:layout_marginBottom="20dp"
+        android:layout_marginTop="20dp"
+        android:max="100" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/seekbar"
+        android:layout_below="@id/iv_svg_3"
+        android:orientation="horizontal">
+
+        <com.jrummyapps.android.widget.AnimatedSvgView
+            android:id="@+id/animated_svg_view"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_weight="1"
+            app:animatedSvgFillStart="1200"
+            app:animatedSvgFillTime="1000"
+            app:animatedSvgTraceMarkerLength="50"
+            app:animatedSvgTraceTime="2000"
+            app:animatedSvgGlyphStrings="@drawable/ic_cat"
+            app:animatedSvgTraceTimePerGlyph="1000" />
+
+        <com.eftimoff.androipathview.PathView
+            android:id="@+id/pathView"
+            android:layout_width="200dp"
+            android:background="@color/colorR"
+            android:layout_height="100dp"
+            app:pathColor="@color/color2"
+            app:pathWidth="1dp"
+            app:svg="@raw/horse" />
+    </LinearLayout>
+
+</RelativeLayout>

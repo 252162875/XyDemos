@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<animated-vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:drawable="@drawable/ic_form">
+
+    <target
+        android:name="form2"
+        android:animation="@animator/fish_animator" />
+    <target
+        android:name="form3"
+        android:animation="@animator/fish_animator" />
+    <target
+        android:name="form4"
+        android:animation="@animator/fish_animator" />
+    <target
+        android:name="form5"
+        android:animation="@animator/fish_animator" />
+
+</animated-vector>

@@ -120,7 +120,7 @@ public class BaiduMapActivity extends Activity {
         //第四步，发起检索请求；
         mPoiSearch.searchInCity((new PoiCitySearchOption())
                 .city("西安")
-                .keyword("科技二路")
+                .keyword("科技四路")
                 .pageNum(10));
         mBaiduMap = mMapView.getMap();
         BaiduMapActivityPermissionsDispatcher.getLocationWithCheck(this);//BaiduMap初始化完成再调用，否则在MyLocationListener 的onReceiveLocation里面mBaiduMap可能为NULL

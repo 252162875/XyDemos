@@ -15,9 +15,10 @@
             android:text="XFREMODE测试" />
 
         <Button
-            android:id="@+id/btn_customview_day_one"
+             android:id="@+id/btn_customview_day_one"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
             android:text="CUSTOMVIEWDAYONE" />
 
     </LinearLayout>

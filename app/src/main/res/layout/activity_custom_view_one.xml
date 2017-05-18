@@ -4,6 +4,7 @@
     android:layout_height="match_parent">
 
     <kx.rnd.com.permissionstest.view.CustomViewDayOne
+        android:id="@+id/cv_pie"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 

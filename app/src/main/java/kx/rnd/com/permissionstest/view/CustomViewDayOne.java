@@ -7,7 +7,6 @@ import android.graphics.Paint;
 import android.graphics.Rect;
 import android.graphics.RectF;
 import android.os.Build;
-import android.support.annotation.ColorInt;
 import android.util.AttributeSet;
 import android.view.View;
 
@@ -17,13 +16,13 @@ import java.util.ArrayList;
  * TODO: document your custom view class.
  */
 public class CustomViewDayOne extends View {
-    private int mIntCum = 0;
+    private float mCum = 0;
     private float mFloatCum = 0.0f;
 
     private Paint mPaint;
     private int mWidth;
     private int mHeight;
-    private int mStartAngle = 0;
+    private float mStartAngle = 0;
     private ArrayList<Integer> mColors;
     private ArrayList<Integer> mdata;
 
@@ -126,11 +125,19 @@ public class CustomViewDayOne extends View {
     }
 
     private void drawPie(Canvas canvas) {
-        if (mColors == null || mColors.size()==0||mdata == null || mdata.size()==0 || mColors.size() != mdata.size()) {
+        if (mColors == null || mColors.size() == 0 || mdata == null || mdata.size() == 0 || mColors.size() != mdata.size()) {
             return;
         }
         canvas.translate(mWidth / 2, (mHeight - 360) / 2 + 360);
-        canvas.drawRect(-200, -200, 200, 200, mPaint);
+        float r = Math.min(mWidth, mHeight - 360) / 2 * 0.8f;
+        RectF rectF = new RectF(-r, -r, r, r);
+//        canvas.drawRect(rectF, mPaint);//背景矩形
+        for (int i = 0; i < mdata.size(); i++) {
+            mPaint.setColor(mColors.get(i));
+            float mCurrentAngle = mdata.get(i) / mCum * 360;
+            canvas.drawArc(rectF, mStartAngle, mCurrentAngle, true, mPaint);
+            mStartAngle += mCurrentAngle;
+        }
     }
 
     @Override
@@ -140,17 +147,17 @@ public class CustomViewDayOne extends View {
     }
 
     // 设置起始角度
-    public void setStartAngle(int mStartAngle) {
+    public void setStartAngle(float mStartAngle) {
         this.mStartAngle = mStartAngle;
         invalidate();
     }
 
-    public void setData(ArrayList<Integer> data,ArrayList<Integer> mColors) {
+    public void setData(ArrayList<Integer> data, ArrayList<Integer> mColors) {
         this.mColors = mColors;
         this.mdata = data;
-        mIntCum = 0;
+        mCum = 0;
         for (int p : data) {
-            mIntCum += p;
+            mCum += p;
         }
         invalidate();   // 刷新
     }

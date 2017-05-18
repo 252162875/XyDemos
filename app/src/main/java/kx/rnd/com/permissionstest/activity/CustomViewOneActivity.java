@@ -29,5 +29,6 @@ public class CustomViewOneActivity extends AppCompatActivity {
             colors.add(mColors[i]);
         }
         cvPie.setData(data, colors);
+        cvPie.setStartAngle(45.0f);
     }
 }

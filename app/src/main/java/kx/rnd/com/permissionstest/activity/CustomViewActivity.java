@@ -23,7 +23,7 @@ public class CustomViewActivity extends AppCompatActivity {
         ButterKnife.bind(this);
     }
 
-    @OnClick({R.id.btn_xfremode_test,R.id.btn_customview_day_one})
+    @OnClick({R.id.btn_xfremode_test,R.id.btn_customview_day_one,R.id.btn_canvas})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.btn_xfremode_test:
@@ -33,6 +33,10 @@ public class CustomViewActivity extends AppCompatActivity {
             case R.id.btn_customview_day_one:
                 Intent customViewOneIntent = new Intent(CustomViewActivity.this, CustomViewOneActivity.class);
                 startActivity(customViewOneIntent);
+                break;
+            case R.id.btn_canvas:
+                Intent customViewTwoIntent = new Intent(CustomViewActivity.this, CustomViewTwoActivity.class);
+                startActivity(customViewTwoIntent);
                 break;
         }
     }

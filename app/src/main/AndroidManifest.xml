@@ -56,7 +56,7 @@
         <service
             android:name="com.baidu.location.f"
             android:enabled="true"
-            android:process=":remote"></service>
+            android:process=":remote" />
 
         <activity android:name=".activity.SecondActivity" />
 
@@ -84,7 +84,10 @@
         <activity android:name=".activity.CustomViewActivity" />
         <activity android:name=".activity.XfreModeTestActivity" />
         <activity android:name=".activity.CustomViewOneActivity" />
-        <activity android:name=".activity.BaiduMapActivity"></activity>
+        <activity android:name=".activity.BaiduMapActivity" />
+        <activity android:name=".activity.CustomViewTwoActivity" />
+        <activity android:name=".activity.CanvasTranslateScaleActivity" />
+        <activity android:name=".activity.CanvasRotateActivity"></activity>
     </application>
 
 </manifest>

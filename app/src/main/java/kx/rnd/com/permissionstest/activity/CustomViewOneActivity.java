@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -18,6 +19,7 @@ public class CustomViewOneActivity extends AppCompatActivity {
     CustomViewDayOne cvPie;
 
     @Override
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_custom_view_one);
@@ -25,7 +27,12 @@ public class CustomViewOneActivity extends AppCompatActivity {
         ArrayList<Integer> data = new ArrayList<>();
         ArrayList<Integer> colors = new ArrayList<>();
         for (int i = 0; i < 6; i++) {
-            data.add(10 * i - i + 5);
+            int j = new Random().nextInt();
+            int o = Math.abs(j % 2);
+            if (o == 0) {
+                o = 2;
+            }
+            data.add(i * o - i + 5);
             colors.add(mColors[i]);
         }
         cvPie.setData(data, colors);

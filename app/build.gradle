@@ -41,10 +41,17 @@ android {
 
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
+    compile project(':library')
+    compile files('libs/baidumapapi_map_v4_3_1.jar')
+    compile files('libs/locSDK_6.13.jar')
+    compile files('libs/baidumapapi_util_v4_3_1.jar')
+    compile files('libs/baidumapapi_search_v4_3_1.jar')
+    compile files('libs/baidumapapi_radar_v4_3_1.jar')
+    compile files('libs/baidumapapi_cloud_v4_3_1.jar')
+    compile files('libs/baidumapapi_base_v4_3_1.jar')
     compile 'com.amap.api:3dmap:latest.integration'
     compile 'com.amap.api:location:latest.integration'
     compile 'com.amap.api:search:latest.integration'
-    compile project(':library')
     compile 'com.android.support:appcompat-v7:25.2.0'
     compile 'com.jakewharton:butterknife:8.0.1'
     compile 'com.android.support:design:25.2.0'
@@ -63,21 +70,14 @@ dependencies {
     compile 'com.eftimoff:android-pathview:1.0.8@aar'
     compile 'com.android.support:support-vector-drawable:25.0.0-alpha1'
     compile 'com.android.support.constraint:constraint-layout:1.0.1'
-    testCompile 'junit:junit:4.12'
-    testCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.5.1'
-    apt 'com.jakewharton:butterknife-compiler:8.0.1'
-    debugCompile 'com.squareup.leakcanary:leakcanary-android:1.5.1'
-    releaseCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.5.1'
-    compile files('libs/baidumapapi_map_v4_3_1.jar')
-    compile files('libs/locSDK_6.13.jar')
-    compile files('libs/baidumapapi_util_v4_3_1.jar')
-    compile files('libs/baidumapapi_search_v4_3_1.jar')
-    compile files('libs/baidumapapi_radar_v4_3_1.jar')
-    compile files('libs/baidumapapi_cloud_v4_3_1.jar')
-    compile files('libs/baidumapapi_base_v4_3_1.jar')
     compile 'com.github.hotchemi:permissionsdispatcher:2.3.1'
-    apt 'com.github.hotchemi:permissionsdispatcher-processor:2.3.1'
     compile 'com.tencent.bugly:crashreport:latest.release'
     compile 'com.tencent.bugly:nativecrashreport:latest.release'
     compile 'com.android.support:support-annotations:26.0.0-alpha1'
+    testCompile 'junit:junit:4.12'
+    testCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.5.1'
+    apt 'com.jakewharton:butterknife-compiler:8.0.1'
+    apt 'com.github.hotchemi:permissionsdispatcher-processor:2.3.1'
+    debugCompile 'com.squareup.leakcanary:leakcanary-android:1.5.1'
+    releaseCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.5.1'
 }

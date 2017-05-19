@@ -9,23 +9,17 @@
         android:orientation="vertical">
 
         <Button
-            android:id="@+id/btn_xfremode_test"
+            android:id="@+id/btn_translate_scale"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="XFREMODE测试" />
+            android:text="translate&amp;scale测试" />
 
         <Button
-             android:id="@+id/btn_customview_day_one"
+            android:id="@+id/btn_rotate"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
-            android:text="CUSTOMVIEWDAYONE" />
-        <Button
-            android:id="@+id/btn_canvas"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:text="canvas操作" />
+            android:text="rotate测试" />
 
     </LinearLayout>
 </ScrollView>

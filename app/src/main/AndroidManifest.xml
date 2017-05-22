@@ -87,7 +87,9 @@
         <activity android:name=".activity.BaiduMapActivity" />
         <activity android:name=".activity.CustomViewTwoActivity" />
         <activity android:name=".activity.CanvasTranslateScaleActivity" />
-        <activity android:name=".activity.CanvasRotateActivity"></activity>
+        <activity android:name=".activity.CanvasRotateActivity" />
+        <activity android:name=".activity.CanvasPictureTextActivity"
+            android:hardwareAccelerated="false"></activity>
     </application>
 
 </manifest>

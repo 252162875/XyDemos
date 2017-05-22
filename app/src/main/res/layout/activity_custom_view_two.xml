@@ -20,6 +20,12 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
             android:text="rotate测试" />
+        <Button
+            android:id="@+id/btn_pic_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:text="Picture&amp;Text测试" />
 
     </LinearLayout>
 </ScrollView>

@@ -25,7 +25,7 @@ public class CustomViewTwoActivity extends AppCompatActivity {
         ButterKnife.bind(this);
     }
 
-    @OnClick({R.id.btn_translate_scale, R.id.btn_rotate})
+    @OnClick({R.id.btn_translate_scale, R.id.btn_rotate, R.id.btn_pic_text})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.btn_translate_scale:
@@ -35,6 +35,10 @@ public class CustomViewTwoActivity extends AppCompatActivity {
             case R.id.btn_rotate:
                 Intent scaleIntent = new Intent(CustomViewTwoActivity.this, CanvasRotateActivity.class);
                 startActivity(scaleIntent);
+                break;
+            case R.id.btn_pic_text:
+                Intent canvasPictureTextIntent = new Intent(CustomViewTwoActivity.this, CanvasPictureTextActivity.class);
+                startActivity(canvasPictureTextIntent);
                 break;
         }
     }

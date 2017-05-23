@@ -39,6 +39,7 @@ public class CanvasPictureTextView extends View {
     private int animState = ANIM_NULL;      // 动画状态
     private boolean isCheck = false;        // 是否只选中状态
     private Handler mHandler;
+    private Paint textPaint;
 
     public CanvasPictureTextView(Context context) {
         super(context);
@@ -61,6 +62,7 @@ public class CanvasPictureTextView extends View {
     private void init(AttributeSet attrs, int defStyle) {
         okBitmap = BitmapFactory.decodeResource(context.getResources(), R.drawable.checkmark);
         mPaint = new Paint();
+        textPaint = new Paint();
         mHandler = new Handler() {
             @Override
             public void handleMessage(Message msg) {
@@ -124,8 +126,38 @@ public class CanvasPictureTextView extends View {
         Bitmap bitmap = BitmapFactory.decodeResource(context.getResources(), R.drawable.share);
         canvas.drawBitmap(bitmap, new Matrix(), mPaint);
         canvas.drawBitmap(bitmap, 200, 200, mPaint);
+        drawChecked(canvas);
+        textPaint.setColor(Color.MAGENTA);
+        textPaint.setStyle(Paint.Style.FILL);
+        textPaint.setTextSize(50);
+        String str = "梦jy∫‰℃ÃÄÎŠ²YPájǐ";
+        float t = textPaint.measureText(str);
+        canvas.drawText(str, -t / 2, 0, textPaint);//指定文本基线位置(基线x默认在字符串左侧，基线y默认在字符串下方)。
+        Paint.FontMetrics fontMetrics = textPaint.getFontMetrics();
+        float leading = Math.abs(fontMetrics.leading);
+        float ascent = Math.abs(fontMetrics.ascent);
+        float descent = Math.abs(fontMetrics.descent);
+        float bottom = Math.abs(fontMetrics.bottom);
+        textPaint.setColor(Color.GREEN);
+        canvas.drawLine(-t / 2, 0, t / 2, 0, textPaint);
+        textPaint.setColor(Color.MAGENTA);
+        canvas.drawLine(-t / 2, descent, t / 2, descent, textPaint);
+        textPaint.setColor(Color.YELLOW);
+        canvas.drawLine(-t / 2, -ascent, t / 2, -ascent, textPaint);
+        textPaint.setColor(Color.RED);
+        canvas.drawLine(-t / 2 + 50, -ascent - leading, t / 2 - 50, -ascent - leading, textPaint);
+        textPaint.setColor(Color.BLACK);
+        canvas.drawLine(-t / 2 + 50, bottom, t / 2 - 50, bottom, textPaint);
+        textPaint.setColor(Color.MAGENTA);
+        canvas.drawPosText("梦境缠绕", new float[]{
+                -t / 2, 100, -t / 2 + 50, 150, -t / 2 + 100, 200, -t / 2 + 150, 250
+        }, textPaint);//这里数组长度必须等于字符串长度，否则或数组越界,一般不建议使用
+    }
 
-
+    /**
+     * 画选择图的“对号”
+     */
+    private void drawChecked(Canvas canvas) {
         // 得出图像边长
         int sideLength = okBitmap.getHeight();
 
@@ -133,7 +165,7 @@ public class CanvasPictureTextView extends View {
         canvas.translate(mWidth / 2, mHeight / 2);
         // 绘制背景圆形
         canvas.drawCircle(0, 0, 240, mPaint);
-        // 指定图片绘制区域(左上角的四分之一)
+        // 指定图片绘制区域
         Rect src = new Rect(sideLength * animCurrentPage, 0, sideLength * (animCurrentPage + 1), sideLength);
         // 指定图片在屏幕上显示的区域
         Rect dst = new Rect(-200, -200, 200, 200);
@@ -163,6 +195,13 @@ public class CanvasPictureTextView extends View {
         animCurrentPage = animMaxPage - 1;
         mHandler.sendEmptyMessageDelayed(0, animDuration / animMaxPage);
         isCheck = false;
+    }
+
+    /**
+     * 获取选择状态
+     */
+    public boolean isChecked() {
+        return isCheck;
     }
 
     /**

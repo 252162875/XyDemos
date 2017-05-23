@@ -1,4 +1,4 @@
-package kx.rnd.com.permissionstest.activity;
+package kx.rnd.com.permissionstest.activity.customview;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;

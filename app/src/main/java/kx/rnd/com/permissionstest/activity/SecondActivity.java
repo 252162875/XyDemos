@@ -11,6 +11,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import kx.rnd.com.permissionstest.R;
+import kx.rnd.com.permissionstest.activity.customview.CustomViewActivity;
 
 public class SecondActivity extends Activity {
 

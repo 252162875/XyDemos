@@ -1,4 +1,4 @@
-package kx.rnd.com.permissionstest.activity;
+package kx.rnd.com.permissionstest.activity.customview;
 
 import android.graphics.Color;
 import android.os.Bundle;
@@ -30,7 +30,7 @@ public class CanvasPictureTextActivity extends AppCompatActivity {
         canvasPt.setAnimDuration(300);
     }
 
-    @OnClick({R.id.btn_check, R.id.btn_uncheck})
+    @OnClick({R.id.btn_check, R.id.btn_uncheck, R.id.canvas_pt})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.btn_check:
@@ -38,6 +38,13 @@ public class CanvasPictureTextActivity extends AppCompatActivity {
                 break;
             case R.id.btn_uncheck:
                 canvasPt.unCheck();
+                break;
+            case R.id.canvas_pt:
+                if (canvasPt.isChecked()) {
+                    canvasPt.unCheck();
+                } else {
+                    canvasPt.check();
+                }
                 break;
         }
     }

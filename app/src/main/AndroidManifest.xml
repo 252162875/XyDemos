@@ -81,15 +81,17 @@
             android:name=".activity.CollapsingToolbarTestActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar" />
         <activity android:name=".activity.SvgTestActivity" />
-        <activity android:name=".activity.CustomViewActivity" />
-        <activity android:name=".activity.XfreModeTestActivity" />
-        <activity android:name=".activity.CustomViewOneActivity" />
+        <activity android:name=".activity.customview.CustomViewActivity" />
+        <activity android:name=".activity.customview.XfreModeTestActivity" />
+        <activity android:name=".activity.customview.CustomViewOneActivity" />
         <activity android:name=".activity.BaiduMapActivity" />
-        <activity android:name=".activity.CustomViewTwoActivity" />
-        <activity android:name=".activity.CanvasTranslateScaleActivity" />
-        <activity android:name=".activity.CanvasRotateActivity" />
-        <activity android:name=".activity.CanvasPictureTextActivity"
-            android:hardwareAccelerated="false"></activity>
+        <activity android:name=".activity.customview.CustomViewTwoActivity" />
+        <activity android:name=".activity.customview.CanvasTranslateScaleActivity" />
+        <activity android:name=".activity.customview.CanvasRotateActivity" />
+        <activity
+            android:name=".activity.customview.CanvasPictureTextActivity"
+            android:hardwareAccelerated="false" />
+        <activity android:name=".activity.customview.PathTestActivity"></activity>
     </application>
 
 </manifest>

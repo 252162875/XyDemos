@@ -1,4 +1,4 @@
-package kx.rnd.com.permissionstest.activity;
+package kx.rnd.com.permissionstest.activity.customview;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -23,7 +23,7 @@ public class CustomViewActivity extends AppCompatActivity {
         ButterKnife.bind(this);
     }
 
-    @OnClick({R.id.btn_xfremode_test,R.id.btn_customview_day_one,R.id.btn_canvas})
+    @OnClick({R.id.btn_xfremode_test,R.id.btn_customview_day_one,R.id.btn_canvas,R.id.btn_path})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.btn_xfremode_test:
@@ -37,6 +37,10 @@ public class CustomViewActivity extends AppCompatActivity {
             case R.id.btn_canvas:
                 Intent customViewTwoIntent = new Intent(CustomViewActivity.this, CustomViewTwoActivity.class);
                 startActivity(customViewTwoIntent);
+                break;
+            case R.id.btn_path:
+                Intent pathTestActivityIntent = new Intent(CustomViewActivity.this, PathTestActivity.class);
+                startActivity(pathTestActivityIntent);
                 break;
         }
     }

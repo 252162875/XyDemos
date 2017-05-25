@@ -23,7 +23,7 @@ public class CustomViewActivity extends AppCompatActivity {
         ButterKnife.bind(this);
     }
 
-    @OnClick({R.id.btn_xfremode_test,R.id.btn_customview_day_one,R.id.btn_canvas,R.id.btn_path})
+    @OnClick({R.id.btn_xfremode_test, R.id.btn_customview_day_one, R.id.btn_canvas, R.id.btn_path, R.id.btn_bezier})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.btn_xfremode_test:
@@ -41,6 +41,10 @@ public class CustomViewActivity extends AppCompatActivity {
             case R.id.btn_path:
                 Intent pathTestActivityIntent = new Intent(CustomViewActivity.this, PathTestActivity.class);
                 startActivity(pathTestActivityIntent);
+                break;
+            case R.id.btn_bezier:
+                Intent bezierActivityIntent = new Intent(CustomViewActivity.this, BezierTestActivity.class);
+                startActivity(bezierActivityIntent);
                 break;
         }
     }

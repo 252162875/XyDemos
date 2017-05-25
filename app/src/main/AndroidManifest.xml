@@ -91,7 +91,8 @@
         <activity
             android:name=".activity.customview.CanvasPictureTextActivity"
             android:hardwareAccelerated="false" />
-        <activity android:name=".activity.customview.PathTestActivity"></activity>
+        <activity android:name=".activity.customview.PathTestActivity" />
+        <activity android:name=".activity.customview.BezierTestActivity"></activity>
     </application>
 
 </manifest>

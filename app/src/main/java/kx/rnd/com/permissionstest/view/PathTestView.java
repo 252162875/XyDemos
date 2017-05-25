@@ -5,6 +5,7 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Path;
+import android.graphics.RectF;
 import android.util.AttributeSet;
 import android.view.View;
 
@@ -86,6 +87,33 @@ public class PathTestView extends View {
         path2.lineTo(-130, -200);
         canvas.drawPath(path2, mPaint);
 
+        Path path3 = new Path();
+        path3.lineTo(-50, 50);
+        path3.addCircle(-50, 100, 50, Path.Direction.CW);
+        canvas.drawPath(path3, mPaint);
+
+        Path path4 = new Path();
+        path4.addRect(-300, -200, -150, -10, Path.Direction.CW);
+        Path path5 = new Path();
+        path5.addCircle(-300, -250, 50, Path.Direction.CW);
+        path4.addPath(path5, -10, -10);
+        canvas.drawPath(path4, mPaint);
+
+        //将画布想上、右方向移动100(坐标系重置为新的坐标系)
+        canvas.translate(100, -100);
+        RectF rectF = new RectF(0, -200, 200, 0);
+        Path path6 = new Path();
+        path6.lineTo(100, -100);
+        path6.addArc(rectF, 0, 270);
+        canvas.drawPath(path6, mPaint);
+
+        mPaint.setColor(Color.RED);
+        RectF rectF1 = new RectF(-350, 250, -250, 350);
+        Path path7 = new Path();
+        path7.moveTo(-250, 250);
+        path7.rLineTo(-50, 50);
+        path7.arcTo(rectF1, 0, 270,false);//forceMoveTo默认是false,true的时候貌似和addArc一样样的~~~(true:将最后一个点移动到圆弧起点，即不连接最后一个点与圆弧起点;false:不移动，而是连接最后一个点与圆弧起点)
+        canvas.drawPath(path7, mPaint);
     }
 
     @Override

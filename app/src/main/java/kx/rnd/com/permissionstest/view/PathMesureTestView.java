@@ -9,8 +9,12 @@ import android.graphics.Matrix;
 import android.graphics.Paint;
 import android.graphics.Path;
 import android.graphics.PathMeasure;
+import android.graphics.RectF;
 import android.util.AttributeSet;
 import android.view.View;
+
+import com.caverock.androidsvg.SVG;
+import com.caverock.androidsvg.SVGParseException;
 
 import kx.rnd.com.permissionstest.R;
 
@@ -71,9 +75,23 @@ public class PathMesureTestView extends View {
         int contentWidth = getWidth() - paddingLeft - paddingRight;
         int contentHeight = getHeight() - paddingTop - paddingBottom;
         canvas.translate(mCenterX, mCenterY); // 将坐标系移动到画布中央
-
-
-        // 绘制贝塞尔曲线
+        /**
+         * 在这里额外测试了com.caverock:androidsvg:1.2.2-beta-1这个SVG解析库
+         */
+        canvas.save();
+        try {
+            SVG svg = SVG.getFromResource(getContext(), R.raw.monitor);
+            svg.setDocumentHeight(mHeight);
+            svg.setDocumentWidth(mWidth);
+            float documentWidth = svg.getDocumentWidth();
+            float documentHeight = svg.getDocumentHeight();
+            canvas.translate(-documentWidth / 2, -documentHeight / 2);
+            RectF rectF = new RectF(-mWidth / 2, -mHeight / 2, mWidth / 2, mHeight / 2);
+            svg.renderToCanvas(canvas,rectF);
+        } catch (SVGParseException e) {
+            e.printStackTrace();
+        }
+        canvas.restore();
         mPaint.setColor(Color.RED);
         mPaint.setStrokeWidth(8);
         mPaint.setStyle(Paint.Style.STROKE);

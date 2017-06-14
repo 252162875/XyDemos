@@ -39,7 +39,7 @@ public class SecondActivity extends Activity {
         }
     }
 
-    @OnClick({R.id.btn_buletooth, R.id.btn_muiltdownload, R.id.btn_verticalscroll, R.id.btn_polygon, R.id.btn_watch, R.id.btn_behavior, R.id.btn_okhttp_retrofit, R.id.btn_svg_test, R.id.btn_custom_view, R.id.btn_baidu_map})
+    @OnClick({R.id.btn_buletooth,R.id.btn_product_detail_test, R.id.btn_muiltdownload, R.id.btn_verticalscroll, R.id.btn_polygon, R.id.btn_watch, R.id.btn_behavior, R.id.btn_okhttp_retrofit, R.id.btn_svg_test, R.id.btn_custom_view, R.id.btn_baidu_map})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.btn_buletooth:

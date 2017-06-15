@@ -23,12 +23,16 @@ public class CustomViewActivity extends AppCompatActivity {
         ButterKnife.bind(this);
     }
 
-    @OnClick({R.id.btn_360scroll, R.id.btn_xfremode_test, R.id.btn_customview_day_one, R.id.btn_canvas, R.id.btn_path, R.id.btn_bezier})
+    @OnClick({R.id.btn_360scroll,R.id.btn_product_detail, R.id.btn_xfremode_test, R.id.btn_customview_day_one, R.id.btn_canvas, R.id.btn_path, R.id.btn_bezier})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.btn_360scroll:
                 Intent scroll360Intent = new Intent(CustomViewActivity.this, Scroll360Activity.class);
                 startActivity(scroll360Intent);
+                break;
+            case R.id.btn_product_detail:
+                Intent productDetailIntent = new Intent(CustomViewActivity.this, ProductDetailActivity.class);
+                startActivity(productDetailIntent);
                 break;
             case R.id.btn_xfremode_test:
                 Intent xfreModeTestIntent = new Intent(CustomViewActivity.this, XfreModeTestActivity.class);

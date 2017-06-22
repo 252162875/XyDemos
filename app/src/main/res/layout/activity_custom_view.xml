@@ -52,6 +52,12 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
             android:text="Bezier贝赛尔曲线" />
+        <Button
+            android:id="@+id/btn_swipe"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:text="侧滑控件" />
 
     </LinearLayout>
 </ScrollView>

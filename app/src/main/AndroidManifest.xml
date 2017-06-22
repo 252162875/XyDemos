@@ -94,7 +94,8 @@
         <activity android:name=".activity.customview.PathTestActivity" />
         <activity android:name=".activity.customview.BezierTestActivity" />
         <activity android:name=".activity.customview.Scroll360Activity" />
-        <activity android:name=".activity.customview.ProductDetailActivity"></activity>
+        <activity android:name=".activity.customview.ProductDetailActivity" />
+        <activity android:name=".activity.customview.MymSwipeMenuLayoutActivity"></activity>
     </application>
 
 </manifest>

@@ -214,7 +214,7 @@ public class MymSwipeMenuLayout extends ViewGroup {
             int cBottom = cTop + mContentView.getMeasuredHeight();
             mContentView.layout(cLeft, cTop, cRight, cBottom);
         }
-
+        //3、布局mLeftView，mLeftView是在左边的，一开始是看不到的
         if (mLeftView != null) {
             MarginLayoutParams leftViewLayoutParams = (MarginLayoutParams) mLeftView.getLayoutParams();
             int lTop = top + leftViewLayoutParams.topMargin;
@@ -223,7 +223,7 @@ public class MymSwipeMenuLayout extends ViewGroup {
             int lBottom = lTop + mLeftView.getMeasuredHeight();
             mLeftView.layout(lLeft, lTop, lRight, lBottom);
         }
-
+        //4、布局mRightView，mRightView是在右边的，一开始也是看不到的
         if (mRightView != null) {
             MarginLayoutParams rightViewLayoutParams = (MarginLayoutParams) mRightView.getLayoutParams();
             int lTop = top + rightViewLayoutParams.topMargin;
@@ -238,9 +238,10 @@ public class MymSwipeMenuLayout extends ViewGroup {
     public boolean dispatchTouchEvent(MotionEvent ev) {
         switch (ev.getAction()) {
             case MotionEvent.ACTION_DOWN:
-                Log.e(TAG, "getScrollX()=" + getScrollX() + "\r\nmLeftView.getLeft()=" + mLeftView.getLeft() + "\r\nmRightView.getRight()=" + mRightView.getRight() + "\r\ngetLeft()=" + getLeft());
+//                Log.e(TAG, "getScrollX()=" + getScrollX() + "\r\nmLeftView.getLeft()=" + mLeftView.getLeft() + "\r\nmRightView.getRight()=" + mRightView.getRight() + "\r\ngetLeft()=" + getLeft());
                 //经过测试，getScrollX表示整个可是范围相对于初始化时（初始化getScrollX为0）移动的距离（可视范围右移的话感觉就是内容左移，此时getScrollX是负值；相反亦然）
                 isSwipeing = false;
+                //1、记录最后点击的位置
                 if (mLastP == null) {
                     mLastP = new PointF();
                 }
@@ -248,15 +249,19 @@ public class MymSwipeMenuLayout extends ViewGroup {
                 if (mFirstP == null) {
                     mFirstP = new PointF();
                 }
+                //2、记录第一次点击的位置
                 mFirstP.set(ev.getRawX(), ev.getRawY());
+                //3、mViewCache，参考了网上一个作者的思想，通过类单例来控制每次只有一个菜单被打开
                 if (mViewCache != null) {
                     if (mViewCache != this) {
+                        //4、当此时点击的view不是已打开菜单的view，我们就关闭已打开的菜单
                         mViewCache.handlerSwipeMenu(SwipeState.CLOSE);
                     }
                 }
                 break;
             case MotionEvent.ACTION_MOVE:
                 isSwipeing = true;
+                //5、获得横向和纵向的移动距离
                 float distanceX = mLastP.x - ev.getRawX();
                 float distanceY = mLastP.y - ev.getRawY();
                 if (Math.abs(distanceY) > mScaledTouchSlop * 2) {
@@ -266,9 +271,10 @@ public class MymSwipeMenuLayout extends ViewGroup {
                 if (Math.abs(distanceX) > mScaledTouchSlop * 2 || Math.abs(getScrollX()) > mScaledTouchSlop * 2) {
                     requestDisallowInterceptTouchEvent(true);
                 }
+                //6、通过使用scrollBy控制view的滑动
                 scrollBy((int) (distanceX), 0);//滑动使用scrollBy
 
-                //越界修正
+                //7、越界修正
                 if (getScrollX() < 0) {
                     if (!mCanRightSwipe || mLeftView == null) {
                         scrollTo(0, 0);
@@ -293,6 +299,7 @@ public class MymSwipeMenuLayout extends ViewGroup {
                 break;
             case MotionEvent.ACTION_UP:
             case MotionEvent.ACTION_CANCEL:
+                //8、当用户松开时，判断当前状态，比如左滑菜单出现一半了，此时松开我们应该让菜单自动滑出来
                 SwipeState result = isShouldOpen(getScrollX());
                 handlerSwipeMenu(result);
                 break;

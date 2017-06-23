@@ -58,6 +58,12 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
             android:text="侧滑控件" />
+        <Button
+            android:id="@+id/btn_floatdecoration"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:text="RECYCLERVIEW悬浮分割线" />
 
     </LinearLayout>
 </ScrollView>

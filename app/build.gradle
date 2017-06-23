@@ -83,4 +83,9 @@ dependencies {
     apt 'com.github.hotchemi:permissionsdispatcher-processor:2.3.1'
     debugCompile 'com.squareup.leakcanary:leakcanary-android:1.5.1'
     releaseCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.5.1'
+    compile 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.21'
+    //      BaseRecyclerViewAdapterHelper配置没配置好，有几种情况：
+    //    1. 只配置了dependencies
+    //    2. 配置repositories，但是位置错了，build.gradle(Project:XXXX) 文件下的repositories有两个，一个是buildscript下面的，一个是allprojects下面的，要配置到allprojects下面才是对的。
+    //    3. 版本号前面多一个v，这个是我的锅，在2.1.2版本之前都是带v的，之后（包含2.1.2）都不需要带v。
 }

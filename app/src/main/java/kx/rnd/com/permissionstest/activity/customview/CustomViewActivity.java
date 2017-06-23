@@ -23,7 +23,7 @@ public class CustomViewActivity extends AppCompatActivity {
         ButterKnife.bind(this);
     }
 
-    @OnClick({R.id.btn_360scroll,R.id.btn_product_detail, R.id.btn_xfremode_test, R.id.btn_customview_day_one, R.id.btn_canvas, R.id.btn_path, R.id.btn_bezier, R.id.btn_swipe})
+    @OnClick({R.id.btn_360scroll, R.id.btn_product_detail, R.id.btn_xfremode_test, R.id.btn_customview_day_one, R.id.btn_canvas, R.id.btn_path, R.id.btn_bezier, R.id.btn_swipe, R.id.btn_floatdecoration})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.btn_360scroll:
@@ -57,6 +57,10 @@ public class CustomViewActivity extends AppCompatActivity {
             case R.id.btn_swipe:
                 Intent mymSwipeMenuLayoutActivityIntent = new Intent(CustomViewActivity.this, MymSwipeMenuLayoutActivity.class);
                 startActivity(mymSwipeMenuLayoutActivityIntent);
+                break;
+            case R.id.btn_floatdecoration:
+                Intent floatDecorationActivityIntent = new Intent(CustomViewActivity.this, FloatDecorationActivity.class);
+                startActivity(floatDecorationActivityIntent);
                 break;
         }
     }

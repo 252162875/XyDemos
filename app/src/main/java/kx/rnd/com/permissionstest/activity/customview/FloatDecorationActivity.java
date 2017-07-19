@@ -7,7 +7,6 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.view.Gravity;
 import android.view.View;
 import android.widget.TextView;
 
@@ -43,19 +42,26 @@ public class FloatDecorationActivity extends AppCompatActivity {
         FloatDecoration floatDecoration = FloatDecoration.Builder.init(new GroupListener() {
             @Override
             public String getGroupName(int position) {
-                return "分组：" + position / 10;
+                return "分组：" + position / 5;
             }
 
             @Override
             public View getGroupView(int position) {
                 TextView textView = new TextView(FloatDecorationActivity.this);
                 textView.setBackgroundResource(R.drawable.dota2_3);
+//                textView.setBackgroundColor(Color.argb(55,55,55,55));
                 textView.setTextColor(Color.BLUE);
-                textView.setTextSize(50);
-                textView.setText("分组：" + position / 10);
+                textView.setTextSize(70);
+                textView.setText("分组：" + position / 5);
                 return textView;
             }
-        }).isAlignLeft(true).setGroupHeight(200).build();
+
+            @Override
+            public int getLastIndexInGroup(int position) {
+                int i = position / 5;
+                return 5 * i+4;
+            }
+        }).isAlignLeft(true).setGroupHeight(350).build();
         mRecyclerView.addItemDecoration(floatDecoration);
         mRecyclerView.setAdapter(myAdapter);
     }

@@ -3,6 +3,7 @@ package kx.rnd.com.permissionstest.view.decoration;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Rect;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
 import android.view.View;
@@ -14,7 +15,7 @@ import android.view.ViewGroup;
  */
 public class FloatDecoration extends RecyclerView.ItemDecoration {
     private GroupListener mGroupListener;
-    private int mGroupHeight = 80;  //悬浮栏高度
+    private int mGroupHeight = 200;  //悬浮栏高度
     private boolean isAlignLeft = true; //是否靠左边，true 靠左边（默认）、false 靠右边
 
     public FloatDecoration(GroupListener listener) {
@@ -32,6 +33,8 @@ public class FloatDecoration extends RecyclerView.ItemDecoration {
             //只有是同一组的第一个才显示悬浮栏
             if (pos == 0 || isFirstInGroup(pos)) {
                 outRect.top = mGroupHeight;
+            } else {
+                outRect.top = 0;
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -57,12 +60,27 @@ public class FloatDecoration extends RecyclerView.ItemDecoration {
                     continue;
                 int viewBottom = view.getBottom();
                 int top = Math.max(mGroupHeight, view.getTop());//top 决定当前顶部第一个悬浮Group的位置
+                LinearLayoutManager layoutManager = (LinearLayoutManager) parent.getLayoutManager();
+                int firstVisible = layoutManager.findFirstVisibleItemPosition();
+
                 if (position + 1 < itemCount) {
                     //获取下个GroupName
                     String nextGroupName = getGroupName(position + 1);
-                    //下一组的第一个View接近头部
+                    /*//下一组的第一个View接近头部
                     if (!currentGroupName.equals(nextGroupName) && viewBottom < top) {
+//                        System.out.println("viewBottom==:" + viewBottom);
+//                        System.out.println("top==:" + top);
                         top = viewBottom;
+                    }*/
+                    int lastIndexInGroupNow = mGroupListener.getLastIndexInGroup(position) - firstVisible;
+                    if (lastIndexInGroupNow < childCount) {
+                        View lastView = parent.getChildAt(lastIndexInGroupNow);
+                        int mLastViewBottom = lastView.getBottom();
+//                        Log.d("数据测试", "最下层的View底部   :" + mLastViewBottom);
+//                        Log.d("数据测试", "数据比较" +"  A :"  +(mLastViewBottom + height)  +"  B   :" + top);
+                        if (mLastViewBottom < top) {
+                            top = mLastViewBottom;
+                        }
                     }
                 }
 

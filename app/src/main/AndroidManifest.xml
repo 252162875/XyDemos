@@ -96,7 +96,8 @@
         <activity android:name=".activity.customview.Scroll360Activity" />
         <activity android:name=".activity.customview.ProductDetailActivity" />
         <activity android:name=".activity.customview.MymSwipeMenuLayoutActivity" />
-        <activity android:name=".activity.customview.FloatDecorationActivity"></activity>
+        <activity android:name=".activity.customview.FloatDecorationActivity" />
+        <activity android:name=".activity.AgentWebViewActivity"></activity>
     </application>
 
 </manifest>

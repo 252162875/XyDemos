@@ -18,10 +18,11 @@ android {
     }
     defaultConfig {
         applicationId "kx.rnd.com.permissionstest"
+        multiDexEnabled true
         minSdkVersion 15
         targetSdkVersion 23
         versionCode 1
-        versionName "1.0"
+        versionName "1.0.1"
         ndk { // 设置支持的SO库架构
             abiFilters 'armeabi', 'x86', 'armeabi-v7a', 'x86_6 4', 'arm64-v8a'
 
@@ -38,7 +39,9 @@ android {
         }
     }
 }
-
+repositories {
+    flatDir { dirs 'libs' }
+}
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
     compile project(':library')
@@ -49,7 +52,16 @@ dependencies {
     compile files('libs/baidumapapi_radar_v4_3_1.jar')
     compile files('libs/baidumapapi_cloud_v4_3_1.jar')
     compile files('libs/baidumapapi_base_v4_3_1.jar')
+    //      BaseRecyclerViewAdapterHelper配置没配置好，有几种情况：
 
+    //    1. 只配置了dependencies
+
+    //    2. 配置repositories，但是位置错了，build.gradle(Project:XXXX) 文件下的repositories有两个，一个是buildscript下面的，一个是allprojects下面的，要配置到allprojects下面才是对的。
+
+    //    3. 版本号前面多一个v，这个是我的锅，在2.1.2版本之前都是带v的，之后（包含2.1.2）都不需要带v。
+    compile files('libs/utdid4all-1.1.5.3_proguard.jar')
+    compile files('libs/alicloud-android-utils-1.0.3.jar')
+    compile(name: 'sophix-3.1.9.1', ext: 'aar')
     compile 'com.amap.api:3dmap:latest.integration'
     compile 'com.amap.api:location:latest.integration'
     compile 'com.amap.api:search:latest.integration'
@@ -75,17 +87,14 @@ dependencies {
     compile 'com.tencent.bugly:crashreport:latest.release'
     compile 'com.tencent.bugly:nativecrashreport:latest.release'
     compile 'com.android.support:support-annotations:26.0.0-alpha1'
-    compile 'com.caverock:androidsvg:1.2.2-beta-1'
     compile 'com.github.bumptech.glide:glide:4.0.0-RC0'
+    compile 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.34'
+    compile 'com.android.support:multidex:1.0.0'
+    compile 'com.just.agentweb:agentweb:3.1.0'
     testCompile 'junit:junit:4.12'
     testCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.5.1'
     apt 'com.jakewharton:butterknife-compiler:8.0.1'
     apt 'com.github.hotchemi:permissionsdispatcher-processor:2.3.1'
     debugCompile 'com.squareup.leakcanary:leakcanary-android:1.5.1'
     releaseCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.5.1'
-    compile 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.21'
-    //      BaseRecyclerViewAdapterHelper配置没配置好，有几种情况：
-    //    1. 只配置了dependencies
-    //    2. 配置repositories，但是位置错了，build.gradle(Project:XXXX) 文件下的repositories有两个，一个是buildscript下面的，一个是allprojects下面的，要配置到allprojects下面才是对的。
-    //    3. 版本号前面多一个v，这个是我的锅，在2.1.2版本之前都是带v的，之后（包含2.1.2）都不需要带v。
 }

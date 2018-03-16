@@ -97,7 +97,10 @@
         <activity android:name=".activity.customview.ProductDetailActivity" />
         <activity android:name=".activity.customview.MymSwipeMenuLayoutActivity" />
         <activity android:name=".activity.customview.FloatDecorationActivity" />
-        <activity android:name=".activity.AgentWebViewActivity"></activity>
+        <activity android:name=".activity.AgentWebViewActivity" />
+        <activity android:name=".activity.MvpTestActivity" />
+        <activity android:name=".mvp.SingleMvpActivity" />
+        <activity android:name=".mvpdagger.MvpPlusDaggerActivity"></activity>
     </application>
 
 </manifest>

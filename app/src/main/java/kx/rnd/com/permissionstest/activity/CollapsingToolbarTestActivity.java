@@ -135,33 +135,33 @@ public class CollapsingToolbarTestActivity extends AppCompatActivity {
         });
     }
 
-    public class MyAdapter extends RecyclerView.Adapter {
+        public class MyAdapter extends RecyclerView.Adapter {
 
-        @Override
-        public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-            View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_behavior_second, null);
-            return new MyViewHolder(view);
-        }
+            @Override
+            public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+                View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_behavior_second, null);
+                return new MyViewHolder(view);
+            }
 
-        @Override
-        public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
-            if (holder instanceof MyViewHolder) {
-                ((MyViewHolder) holder).tv_name.setText(data[position]);
+            @Override
+            public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
+                if (holder instanceof MyViewHolder) {
+                    ((MyViewHolder) holder).tv_name.setText(data[position]);
+                }
+            }
+
+            @Override
+            public int getItemCount() {
+                return data.length;
+            }
+
+            public class MyViewHolder extends RecyclerView.ViewHolder {
+                public TextView tv_name;
+
+                public MyViewHolder(View root) {
+                    super(root);
+                    tv_name = (TextView) root.findViewById(R.id.tv_name);
+                }
             }
         }
-
-        @Override
-        public int getItemCount() {
-            return data.length;
-        }
-
-        public class MyViewHolder extends RecyclerView.ViewHolder {
-            public TextView tv_name;
-
-            public MyViewHolder(View root) {
-                super(root);
-                tv_name = (TextView) root.findViewById(R.id.tv_name);
-            }
-        }
-    }
 }

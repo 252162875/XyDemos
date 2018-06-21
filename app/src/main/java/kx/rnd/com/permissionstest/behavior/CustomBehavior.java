@@ -4,8 +4,9 @@ import android.content.Context;
 import android.content.res.TypedArray;
 import android.support.design.widget.CoordinatorLayout;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.View;
-import android.view.animation.BounceInterpolator;
+import android.view.animation.LinearInterpolator;
 import android.widget.ImageView;
 
 import kx.rnd.com.permissionstest.R;
@@ -26,7 +27,7 @@ public class CustomBehavior extends CoordinatorLayout.Behavior<ImageView> {
 
     private int mAvatarMaxHeight;
 
-    private BounceInterpolator interpolator = new BounceInterpolator();
+    private LinearInterpolator interpolator = new LinearInterpolator();
 
     public CustomBehavior(Context context, AttributeSet attrs) {
         mContext = context;
@@ -68,17 +69,21 @@ public class CustomBehavior extends CoordinatorLayout.Behavior<ImageView> {
 
         //让ImageView跟随toolbar垂直移动
 
-        child.setY(dependency.getY() + dependency.getHeight() / 2 - mCustomFinalHeight / 2);
-
+        float y = dependency.getY();
+        int height = dependency.getHeight();
+        Log.e("ASDASD","y = "+y);
+        Log.e("ASDASD","height = "+height);
+        child.setY(y + height / 2 - mCustomFinalHeight / 2);
+//        float percent = dependency.getY() / mStartAvatarY;
         float percent = dependency.getY() / mStartAvatarY;
+        Log.e("PERCENT", percent + "");
 
         //float x = mStartAvatarX*(1+percent);
         float x = mStartAvatarX * (1 + interpolator.getInterpolation(percent));
 
-        //Log.e("wing","started x "+ mStartAvatarX + " currentX "+ x);
+        Log.e("wing", "started x " + mStartAvatarX + " currentX " + x);
 
-        //当toolbar 达到了位置，就不改变了。
-        if (dependency.getY() > dependency.getHeight() / 2) {
+        if (x > mStartAvatarX + ((mAvatarMaxHeight - mCustomFinalHeight)) / 2) {
             child.setX(x);
         } else {
             child.setX(mStartAvatarX + ((mAvatarMaxHeight - mCustomFinalHeight)) / 2);

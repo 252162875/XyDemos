@@ -1,32 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="kx.rnd.com.permissionstest">
+          package="kx.rnd.com.permissionstest">
 
     <!-- 蓝牙权限 -->
-    <uses-permission android:name="android.permission.BLUETOOTH" />
-    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
-    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.BLUETOOTH"/>
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN"/>
+    <uses-permission android:name="android.permission.CALL_PHONE"/>
     <!-- 允许程序打开网络套接字 -->
-    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.INTERNET"/>
     <!-- 允许程序设置内置sd卡的写权限 -->
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
     <!-- 允许程序获取网络状态 -->
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
     <!-- 允许程序访问WiFi网络信息 -->
-    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
     <!-- 允许程序读写手机状态和身份 -->
-    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
     <!-- 允许程序访问CellID或WiFi热点来获取粗略的位置 -->
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
 
     <!-- 用于访问GPS定位 -->
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
     <!-- 这个权限用于获取wifi的获取权限，wifi信息会用来进行网络定位 -->
-    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
-    <uses-permission android:name="com.android.launcher.permission.READ_SETTINGS" />
-    <uses-permission android:name="android.permission.WAKE_LOCK" />
-    <uses-permission android:name="android.permission.GET_TASKS" />
-    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
+    <uses-permission android:name="com.android.launcher.permission.READ_SETTINGS"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.GET_TASKS"/>
+    <uses-permission android:name="android.permission.WRITE_SETTINGS"/>
 
     <application
         android:name=".BaseApplication"
@@ -38,69 +38,69 @@
         //百度地图
         <meta-data
             android:name="com.baidu.lbsapi.API_KEY"
-            android:value="33PgcF7nwQ8xDWonWV5QnOri4uFH85i7" />
+            android:value="33PgcF7nwQ8xDWonWV5QnOri4uFH85i7"/>
         //高德地图
         <meta-data
             android:name="com.amap.api.v2.apikey"
-            android:value="ca8bb1f6ca5873751c5e74f53cbfa1ef" />
+            android:value="ca8bb1f6ca5873751c5e74f53cbfa1ef"/>
 
         <activity android:name=".activity.MainActivity">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+                <action android:name="android.intent.action.MAIN"/>
 
-                <category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
 
-        <service android:name="com.amap.api.location.APSService" />
+        <service android:name="com.amap.api.location.APSService"/>
         <service
             android:name="com.baidu.location.f"
             android:enabled="true"
-            android:process=":remote" />
+            android:process=":remote"/>
 
-        <activity android:name=".activity.SecondActivity" />
+        <activity android:name=".activity.SecondActivity"/>
 
         <receiver android:name=".receiver.BluetoothReceiver">
             <intent-filter android:priority="1000">
-                <action android:name="android.bluetooth.device.action.PAIRING_REQUEST" />
-                <action android:name="android.bluetooth.device.action.FOUND" />
+                <action android:name="android.bluetooth.device.action.PAIRING_REQUEST"/>
+                <action android:name="android.bluetooth.device.action.FOUND"/>
             </intent-filter>
         </receiver>
 
-        <activity android:name=".activity.MuiltDownLoadActivity" />
-        <activity android:name=".activity.VerticalScrollActivity" />
-        <activity android:name=".activity.PolygonActivity" />
-        <activity android:name=".activity.WatchActivity" />
-        <activity android:name=".activity.BehaviorActivity" />
-        <activity android:name=".activity.BehaviorTestOneActivity" />
-        <activity android:name=".activity.OkhtttpAndRetrofitActivity" />
+        <activity android:name=".activity.MuiltDownLoadActivity"/>
+        <activity android:name=".activity.VerticalScrollActivity"/>
+        <activity android:name=".activity.PolygonActivity"/>
+        <activity android:name=".activity.WatchActivity"/>
+        <activity android:name=".activity.BehaviorActivity"/>
+        <activity android:name=".activity.BehaviorTestOneActivity"/>
+        <activity android:name=".activity.OkhtttpAndRetrofitActivity"/>
         <activity
             android:name=".activity.ToolBarTestActivity"
-            android:theme="@style/Theme.AppCompat.NoActionBar" />
+            android:theme="@style/Theme.AppCompat.NoActionBar"/>
         <activity
             android:name=".activity.CollapsingToolbarTestActivity"
-            android:theme="@style/Theme.AppCompat.NoActionBar" />
-        <activity android:name=".activity.SvgTestActivity" />
-        <activity android:name=".activity.customview.CustomViewActivity" />
-        <activity android:name=".activity.customview.XfreModeTestActivity" />
-        <activity android:name=".activity.customview.CustomViewOneActivity" />
-        <activity android:name=".activity.BaiduMapActivity" />
-        <activity android:name=".activity.customview.CustomViewTwoActivity" />
-        <activity android:name=".activity.customview.CanvasTranslateScaleActivity" />
-        <activity android:name=".activity.customview.CanvasRotateActivity" />
+            android:theme="@style/Theme.AppCompat.NoActionBar"/>
+        <activity android:name=".activity.SvgTestActivity"/>
+        <activity android:name=".activity.customview.CustomViewActivity"/>
+        <activity android:name=".activity.customview.XfreModeTestActivity"/>
+        <activity android:name=".activity.customview.CustomViewOneActivity"/>
+        <activity android:name=".activity.BaiduMapActivity"/>
+        <activity android:name=".activity.customview.CustomViewTwoActivity"/>
+        <activity android:name=".activity.customview.CanvasTranslateScaleActivity"/>
+        <activity android:name=".activity.customview.CanvasRotateActivity"/>
         <activity
             android:name=".activity.customview.CanvasPictureTextActivity"
-            android:hardwareAccelerated="false" />
-        <activity android:name=".activity.customview.PathTestActivity" />
-        <activity android:name=".activity.customview.BezierTestActivity" />
-        <activity android:name=".activity.customview.Scroll360Activity" />
-        <activity android:name=".activity.customview.ProductDetailActivity" />
-        <activity android:name=".activity.customview.MymSwipeMenuLayoutActivity" />
-        <activity android:name=".activity.customview.FloatDecorationActivity" />
-        <activity android:name=".activity.AgentWebViewActivity" />
-        <activity android:name=".activity.MvpTestActivity" />
-        <activity android:name=".mvp.SingleMvpActivity" />
-        <activity android:name=".mvpdagger.MvpPlusDaggerActivity"></activity>
+            android:hardwareAccelerated="false"/>
+        <activity android:name=".activity.customview.PathTestActivity"/>
+        <activity android:name=".activity.customview.BezierTestActivity"/>
+        <activity android:name=".activity.customview.Scroll360Activity"/>
+        <activity android:name=".activity.customview.ProductDetailActivity"/>
+        <activity android:name=".activity.customview.MymSwipeMenuLayoutActivity"/>
+        <activity android:name=".activity.customview.FloatDecorationActivity"/>
+        <activity android:name=".activity.AgentWebViewActivity"/>
+        <activity android:name=".activity.MvpTestActivity"/>
+        <activity android:name=".mvp.SingleMvpActivity"/>
+        <activity android:name=".mvpdagger.MvpPlusDaggerActivity"/>
     </application>
 
 </manifest>

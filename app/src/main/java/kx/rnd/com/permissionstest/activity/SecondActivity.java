@@ -27,18 +27,6 @@ public class SecondActivity extends Activity {
         ButterKnife.bind(this);
     }
 
-
-    public void autoPairBlueTooth() {
-        BluetoothAdapter defaultAdapter = BluetoothAdapter.getDefaultAdapter();
-
-
-        if (!defaultAdapter.isEnabled()) {
-            defaultAdapter.enable();//异步的，不会等待结果，直接返回。
-        } else {
-            defaultAdapter.startDiscovery();
-        }
-    }
-
     @OnClick({R.id.btn_buletooth, R.id.btn_product_detail_test, R.id.btn_muiltdownload, R.id.btn_verticalscroll, R.id.btn_polygon, R.id.btn_watch, R.id.btn_behavior, R.id.btn_okhttp_retrofit, R.id.btn_svg_test,
             R.id.btn_custom_view, R.id.btn_baidu_map, R.id.btn_agent_webview, R.id.btn_dagger})
     public void onClick(View view) {
@@ -87,9 +75,20 @@ public class SecondActivity extends Activity {
                 startActivity(agentWebViewActivityIntent);
                 break;
             case R.id.btn_dagger:
-                Intent daggerTestActivityIntent = new Intent(SecondActivity.this,MvpTestActivity.class);
+                Intent daggerTestActivityIntent = new Intent(SecondActivity.this, MvpTestActivity.class);
                 startActivity(daggerTestActivityIntent);
                 break;
+        }
+    }
+
+    public void autoPairBlueTooth() {
+        BluetoothAdapter defaultAdapter = BluetoothAdapter.getDefaultAdapter();
+
+
+        if (!defaultAdapter.isEnabled()) {
+            defaultAdapter.enable();//异步的，不会等待结果，直接返回。
+        } else {
+            defaultAdapter.startDiscovery();
         }
     }
 }

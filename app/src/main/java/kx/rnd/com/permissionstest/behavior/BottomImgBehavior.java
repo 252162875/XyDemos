@@ -2,6 +2,7 @@ package kx.rnd.com.permissionstest.behavior;
 
 import android.content.Context;
 import android.support.design.widget.CoordinatorLayout;
+import android.support.v7.widget.RecyclerView;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.ImageView;
@@ -16,13 +17,13 @@ public class BottomImgBehavior extends CoordinatorLayout.Behavior<ImageView> {
     private int mStartY;
     private float imgStartX;
 
+    public BottomImgBehavior(Context context, AttributeSet attrs) {
+        super(context, attrs);
+    }
+
     @Override
     public boolean layoutDependsOn(CoordinatorLayout parent, ImageView child, View dependency) {
         return dependency.getId() == R.id.view;
-    }
-
-    public BottomImgBehavior(Context context, AttributeSet attrs) {
-        super(context, attrs);
     }
 
     @Override

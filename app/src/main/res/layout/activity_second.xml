@@ -92,5 +92,12 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:text="MVP架构" />
+        <Button
+            android:id="@+id/btn_pdf"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="PDF下载浏览" />
+
     </LinearLayout>
 </ScrollView>

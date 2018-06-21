@@ -16,7 +16,7 @@
             android:id="@+id/collapsing_toolbar_layout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            app:contentScrim="#30469b"
+            app:contentScrim="@color/colorTrs"
             app:expandedTitleMarginStart="48dp"
             app:layout_scrollFlags="scroll|exitUntilCollapsed|snap">
 
@@ -39,9 +39,15 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center|bottom"
                     android:layout_marginBottom="20dp" />
+                <View
+                    android:id="@+id/view_one"
+                    android:layout_width="1dp"
+                    android:layout_gravity="center_horizontal|bottom"
+                    android:layout_height="?attr/actionBarSize"/>
             </FrameLayout>
 
             <android.support.v7.widget.Toolbar
+                android:background="@drawable/image"
                 android:id="@+id/toolbar"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
@@ -60,8 +66,7 @@
                         android:layout_height="wrap_content"
                         android:text="这是标题"
                         android:textColor="@color/colorAccent"
-                        android:textSize="18sp"
-                        app:layout_behavior=".DrawerBehavior" />
+                        android:textSize="18sp"/>
                 </LinearLayout>
 
             </android.support.v7.widget.Toolbar>
@@ -84,8 +89,8 @@
         android:id="@+id/view"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        android:visibility="invisible"
-        app:layout_anchor="@id/custom_indicator" />
+        app:layout_anchor="@id/view_one"
+        app:layout_anchorGravity="center_vertical"/>
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/fab"
@@ -100,7 +105,6 @@
         app:layout_anchorGravity="bottom|end|right"
         app:pressedTranslationZ="16dp"
         app:rippleColor="#33728dff" />
-
     <ImageView
         android:id="@+id/iv_search"
         android:layout_width="70dp"
@@ -111,25 +115,25 @@
         android:src="@drawable/search"
         app:layout_behavior="kx.rnd.com.permissionstest.behavior.BottomImgBehavior" />
 
-    <TextView
-        android:id="@+id/tv_title_1"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:background="@color/colorPrimary"
-        android:text="头条"
-        android:textColor="#fff"
-        android:textSize="18sp"
-        app:layout_behavior="kx.rnd.com.permissionstest.behavior.DrawerBehavior" />
-
     <ImageView
         android:id="@+id/iv_avator"
-        android:layout_width="70dp"
-        android:layout_height="70dp"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
         android:layout_gravity="center_horizontal"
         android:scaleType="centerCrop"
         android:src="@drawable/image"
-        app:finalHeight="50dp"
+        app:finalHeight="?attr/actionBarSize"
         app:layout_behavior="kx.rnd.com.permissionstest.behavior.CustomBehavior" />
+    <TextView
+        android:id="@+id/tv_title_1"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/colorPrimary"
+        android:text="头条"
+        android:gravity="center_vertical"
+        android:textColor="#fff"
+        android:textSize="18sp"
+        app:layout_behavior="kx.rnd.com.permissionstest.behavior.DrawerBehavior"/>
 
 
 </android.support.design.widget.CoordinatorLayout>

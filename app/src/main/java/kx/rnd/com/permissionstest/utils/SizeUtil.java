@@ -20,20 +20,12 @@ public class SizeUtil {
         return TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dpi, context.getResources().getDisplayMetrics());
     }
 
-    //px转dp
-    public static float Px2Dp(Context context, float px) {
-        return TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_PX, px, context.getResources().getDisplayMetrics());
-    }
 
     //sp转px
     public static float Sp2Px(Context context, float sp) {
         return TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP, sp, context.getResources().getDisplayMetrics());
     }
 
-    //px转sp
-    public static float Px2Sp(Context context, float px) {
-        return TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_PX, px, context.getResources().getDisplayMetrics());
-    }
 
     //onCreate中强行获取View的宽高
     public static int[] forceGetViewSize(View view) {

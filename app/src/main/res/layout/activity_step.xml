@@ -18,9 +18,10 @@
             android:layout_centerInParent="true"
             android:background="@color/color4"
             app:sv_dot_selected_color="@drawable/dot_select_red"
-            app:sv_dot_text_distance="10dp"
+            app:sv_dot_text_distance="5dp"
             app:sv_line_selected_color="@color/colorPrimary"
-            app:sv_linewidth="3dp"
+            app:sv_linewidth="1dp"
+            app:sv_textsize="15sp"
             app:sv_text_selected_color="@color/colorAccent"/>
 
         <Button
@@ -29,6 +30,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/step_view"
             android:layout_centerHorizontal="true"
+            android:textSize="15sp"
             android:layout_marginTop="20dp"
             android:text="下一步"/>
 

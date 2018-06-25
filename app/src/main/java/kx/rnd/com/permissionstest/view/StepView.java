@@ -69,7 +69,7 @@ public class StepView extends View {
             mDotSize = array.getDimension(R.styleable.StepView_sv_dotsize, DptoPx(20));
             mLineWidth = array.getDimension(R.styleable.StepView_sv_linewidth, DptoPx(1));
             vDistance = array.getDimension(R.styleable.StepView_sv_dot_text_distance, DptoPx(20));
-            mTextSize = array.getDimension(R.styleable.StepView_sv_textsize, SptoPx(5));
+            mTextSize = array.getDimension(R.styleable.StepView_sv_textsize, SptoPx(15));
 
             mDotSelectedImg = array.getResourceId(R.styleable.StepView_sv_dot_selected_color, R.drawable.dot_select_red);
             mDotUnSelectedImg = array.getResourceId(R.styleable.StepView_sv_dot_unselected_color, R.drawable.dot_unselect_red);
@@ -82,7 +82,7 @@ public class StepView extends View {
             mDotSize = DptoPx(20);
             mLineWidth = DptoPx(1);
             vDistance = DptoPx(20);
-            mTextSize = SptoPx(5);
+            mTextSize = SptoPx(15);
 
             mDotSelectedImg = R.drawable.dot_select_red;
             mDotUnSelectedImg = R.drawable.dot_unselect_red;
@@ -178,7 +178,7 @@ public class StepView extends View {
 
     private void drawText(Canvas canvas) {
 //        canvas.drawColor(Color.GREEN);
-        mPaint.setTextSize(SptoPx(mTextSize));//设置默认的字体大小为5dp
+        mPaint.setTextSize(mTextSize);//设置默认的字体大小为15sp
         ArrayList<Rect> rects = new ArrayList<>();
         for (int i = 0; i < strings.size(); i++) {
             if (i <= step) {

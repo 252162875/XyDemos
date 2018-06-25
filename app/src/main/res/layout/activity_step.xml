@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="kx.rnd.com.permissionstest.activity.StepActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <kx.rnd.com.permissionstest.view.StepView
+            android:id="@+id/step_view"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_centerInParent="true"
+            android:background="@color/color4"
+            app:sv_dot_selected_color="@drawable/dot_select_red"
+            app:sv_dot_text_distance="10dp"
+            app:sv_line_selected_color="@color/colorPrimary"
+            app:sv_linewidth="3dp"
+            app:sv_text_selected_color="@color/colorAccent"/>
+
+        <Button
+            android:id="@+id/btn_next_step"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/step_view"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:text="下一步"/>
+
+    </RelativeLayout>
+
+</LinearLayout>

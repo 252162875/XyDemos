@@ -101,6 +101,8 @@
         <activity android:name=".activity.MvpTestActivity"/>
         <activity android:name=".mvp.SingleMvpActivity"/>
         <activity android:name=".mvpdagger.MvpPlusDaggerActivity"/>
+        <activity android:name=".activity.StepActivity">
+        </activity>
     </application>
 
 </manifest>

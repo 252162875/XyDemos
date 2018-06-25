@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="StepView">
+        <!--圆点大小-->
+        <attr name="sv_dotsize" format="dimension" />
+        <!--文字大小-->
+        <attr name="sv_textsize" format="dimension" />
+        <!--线段宽度-->
+        <attr name="sv_linewidth" format="dimension" />
+        <!--圆点和文字竖直方向距离-->
+        <attr name="sv_dot_text_distance" format="dimension" />
+        <!--圆点选中-->
+        <attr name="sv_dot_selected_color" format="reference" />
+        <!--圆点未选中-->
+        <attr name="sv_dot_unselected_color" format="reference" />
+        <!--线段选中颜色-->
+        <attr name="sv_line_selected_color" format="color" />
+        <!--线段未选中颜色-->
+        <attr name="sv_line_unselected_color" format="color" />
+        <!--文字选中颜色-->
+        <attr name="sv_text_selected_color" format="color" />
+        <!--文字未选中颜色-->
+        <attr name="sv_text_unselected_color" format="color" />
+    </declare-styleable>
+</resources>
